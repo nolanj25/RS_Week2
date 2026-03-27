@@ -1,5 +1,5 @@
 ---
-title: "RSWEEKS"
+title: "RS ALL WEEKS"
 format: html
 editor: visual
 ---
@@ -10,9 +10,15 @@ I have experience working with commercial businesses and in local and regional g
 
 -   1 - intro to remote sensing
 
--   Week 2 - See Presentation link
+-   Week 2 - See Presentation link(s) and 1 page image.
 
-<!-- -->
+-   
+
+<https://github.com/nolanj25/RS_Week2/blob/master/FINAL_FILE_RUN.Rmd>
+
+[FINAL_FILE_RUN.html · nolanj25/RS_Week2\@2a890](https://github.com/nolanj25/RS_Week2/commit/2a890ce28057c50b6202caf0ebce4a1f82be5813)
+
+![](images/clipboard-101575709.png)
 
 -   *3 - corrections*
 
@@ -60,17 +66,17 @@ Image in QGIS - with full 3 band colour and with Geo-referenced background map
 
 -   *To assign a coordinate reference system, Ground Control Points (GCPs) are collected.*
 
--   *A gold‑standard map is compared with the scanned image, and a regression plot is created. Many points are needed — the more, the better.*
+-   *A gold‑standard map is compared with the scanned image, and a regression plot is created. Many points are needed — the more, the better. See ther Rabaul volcano example sourcing image and quality mapping*
 
--   *Several regression methods (around 5–6) can be used for georeferencing.*
+-   *Several regression methods (around 5–6) can be used for georeferencing. QGIS was used to add the layers*
 
--   *PIFs (Pseudo‑Invariant Features) help maintain consistency across images.*
+-   *PIFs (Pseudo‑Invariant Features) help maintain consistency across images. like roads rivers ect - roads were used used in the Rabaul volcanoe example as well at the old Air port runway.*
 
--   *The goal is to transform the scanned image using a regression model based on the GCPs.*
+-   *Resampling methods include nearest neighbour and centroid‑based approaches. ( this has not been applied yet)*
 
--   *Resampling methods include nearest neighbour and centroid‑based approaches.*
+-   *Non‑matching grids must be matched before analysis, and images need to be the same size. (The over lapping areas match with different size images)*
 
--   *Non‑matching grids must be matched before analysis, and images need to be the same size.*
+-   *Top‑of‑Atmosphere* TOA spectral radiance is light reflected off the Earth as seen from the satellite measure in radiance units.
 
 ***Atmospheric Data and Corrections***
 
@@ -78,7 +84,7 @@ Image in QGIS - with full 3 band colour and with Geo-referenced background map
 
 -   *Dark Object Subtraction is one method of atmospheric correction, though not ideal.*
 
--   *PIF‑based correction uses a reference image.*
+-   *PIF‑based correction uses a reference image. (See above map)*
 
 -   *Corrections are applied per band: the reference pixel value is applied to all corresponding pixels in the target image.*
 
@@ -104,13 +110,13 @@ Image in QGIS - with full 3 band colour and with Geo-referenced background map
 
 ***Topographic Correction***
 
+-   *Solar zenith describes the sun’s height above the horizon.*
+
 -   *Nadir view is directly downward; off‑nadir angles (e.g., 25°) affect illumination*
 
 -   *The MTL file contains metadata such as tile angle, sun angle, and acquisition date.*
 
 -   *Solar azimuth describes the sun’s horizontal position (0° = north, 90° = east).*
-
--   *Solar zenith describes the sun’s height above the horizon.*
 
 -   *Topographic correction accounts for terrain elevation and slope.*
 
@@ -124,7 +130,7 @@ Image in QGIS - with full 3 band colour and with Geo-referenced background map
 
 -   *Conversion uses bias and gain values (e.g., from the Landsat handbook).*
 
--   *DN → spectral radiance → reflectance.*
+-   *Spectral radiance → reflectance.*
 
 -   *Radiance is influenced by the light source; reflectance accounts for the light source and represents the surface properties.*
 
@@ -164,51 +170,25 @@ Image in QGIS - with full 3 band colour and with Geo-referenced background map
 
 -   *When joining datasets, features may need to be extracted using ratios or other transformations.*
 
-***Practical Tasks***
-
--   *Apply Dark Object Subtraction.*
-
--   *Align and use the MTL file for corrections.*
-
--   *Understand product levels (e.g., Landsat SR).*
-
--   *Perform enhancements, filtering, and texture methods.*
-
--   *PCA is often simpler than texture analysis.*
-
--   *Texture zonal statistics can be applied to areas such as 5 × 5 km squares.*
-
--   *Image citations require only the source (e.g., “Landsat, date”).*
-
-<!-- -->
-
--   **4 - Policy (individual case study city)**
+**4 - Policy (individual case study city)**
 
 Heat Prevention Case Study (India)
 
--   I initially planned to download imagery for London because I’m familiar with the area, but I decided instead to explore a different region.
+I initially planned to download imagery for London because I’m familiar with the area, ( see image) but I decided instead to explore a different region in IndiaA case study on heat‑prevention planning in India, which focused on informal settlements (slums).The study examined a 2010 heatwave that showed increased mortality on the hottest days. However, the report also noted that other factors—such as poor air quality, dengue fever, and general illness—may have contributed to the rise in deaths, not only heat stroke or heat exhaustion. The study did not mention satellite data; it relied mainly on weather‑event monitoring and air‑quality information
 
--   A case study on heat‑prevention planning in India, which focused on informal settlements (slums).
+This raised an interesting question: could previous satellite imagery, weather data, and air‑quality sensor data be used to support early‑warning systems for a city of seven million people
 
--   The study examined a 2010 heatwave that showed increased mortality on the hottest days.
+The city now provides five‑day heat forecasts, and the media reports these warnings.
 
--   However, the report also noted that other factors—such as poor air quality, dengue fever, and general illness—may have contributed to the rise in deaths, not only heat stroke or heat exhaustion.
-
--   The study did not mention satellite data; it relied mainly on weather‑event monitoring and air‑quality information
-
--   This raised an interesting question: could previous satellite imagery, weather data, and air‑quality sensor data be used to support early‑warning systems for a city of seven million people
-
--   The city now provides five‑day heat forecasts, and the media reports these warnings.
-
--   The Ahmedabad Municipal Corporation pioneered an early‑warning system for extreme heat.
+The Ahmedabad Municipal Corporation pioneered an early‑warning system for extreme heat.
 
 **Additional Considerations**
 
--   Air‑pollution monitoring should be integrated with heat‑risk analysis. See later weeks SAR reference.
+Air‑pollution monitoring should be integrated with heat‑risk analysis. See later weeks SAR reference.
 
--   Spatial mapping of deaths, combined with town‑planning data and the distribution of slums, could reveal patterns of vulnerability.
+Spatial mapping of deaths, combined with town‑planning data and the distribution of slums, could reveal patterns of vulnerability.
 
--   This could help identify neighbourhoods most at risk and improve targeted interventions.
+This could help identify neighbourhoods most at risk and improve targeted interventions.
 
 One quarter of the slums are migrant population and threat with exposure to the heat eg police and rikshaw drivers are susceptible .
 
@@ -216,9 +196,9 @@ The temp range is not large for only 5 degrees ie 40 the 45 degree c. this would
 
 Artis & Carnahan (1982), recently summarised by Guha et al. 2018 and and Avdan and Jovanovska (2016)
 
-TOA spectral radiance is light reflected off the Earth as seen from the satellite measure in radiance units.
-
 Heat affects health through dehydration, acute by heat exhaustion and heat stroke, and exacerbations of chronic cardiovascular and respiratory diseases. poor air quality, driven by industrial expansion can worsen during extreme heat and lead to respiratory and other illnesses. Heat is also known to fuel outbreaks of vector-borne diseases such as malaria, chikungunya and dengue fever, all prevalent in Ahmedabad \[[6](https://pmc.ncbi.nlm.nih.gov/articles/PMC4024996/#B6-ijerph-11-03473)\], and to impact the incidence of diarrheal disease, especially among children.
+
+-   ***5 - Google Earth Engine***
 
 *Add GEE Pratical codes and Images*
 
@@ -234,13 +214,31 @@ London Borough of Tower Hamlets, United Kingdom Feb 14, 2026 Satellite Imagery
 
 Example of own area data Upload (GEE code)
 
+**A good reference used with code**
+
+Running the book’s example code in GEE works well and allows other case studies to be explored see image below. This will take time but will be valuable for deeper learning.
+
+(Cardille,Crowley, Saah, Clinton (Editors)
+
 ![](images/clipboard-209908950.png)
+
+**Week 6**
+
+An increasing variety of remotely sensed data is becoming available, from very high spatial resolution images such as QuickBird and WorldView to very coarse spatialresolution data obtained from the MODerate resolution Imaging Spectroradiometer 346luetal.(MODIS) and the Advanced Very High Resolution Radiometer (AVHRR). Spectralresolution ranges from the limited number of multispectral bands of the LandsatThematic Mapper (TM) to the over 200 bands of the hyperspectral Hyperion. Passiveoptical sensors such as Landsat and SPOT can be contrasted with active sensorssuch as the Advanced Land Observation Satellite (ALOS) Phased Array type L-bandSynthetic Aperture Radar (PALSAR) and RADARSAT.
+
+-   ***7 - classification 2***
+
+-   Example of running GEE code with land sat imagery
+
+![](images/clipboard-654671235.png)
 
 **Week 8** SAR or temperature, or combination
 
 Loaded and displayed in GEE and researched the SAR properties for Identifying different in structural bodies using active sensor reluctance for heat identification in urban areas. Linking the practical application with past studies and theory
 
-**Practical – Week 8** This week focused on splitting the Level‑3 boundaries and adding a mask to the data before loading it, as well as converting the temperature data from Kelvin to Celsius. This was of use in undertanding the group work.
+Whilst multispectral sensors passively measure electromagnetic radiation reflected from the Earth's surface, radar sensors are active, meaning they emit electromagnetic radiation and then measure the returning signal. Multispectral sensors capture information on chemical properties of surfaces, such as nitrogen or carbon content and moisture (Asner, [**1998**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0002 "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0002"); Tempfli, Kerle, Huurneman, & Janssen, [**2009**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0104 "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0104")), 
+
+**Practical – Week 8** This week focused on splitting the Level‑3 boundaries and adding a mask to the data before loading it, as well as converting the temperature data from Kelvin to Celsius. This was of use in understanding the group work to explaine conversion of raw data to a simplified measure.
 
 The code loaded and ran successfully, producing an impressive output in both coverage and granularity. The cooler appearance of the rivers immediately increased confidence in the imagery. Colour parameters were taken from MODIS.
 
@@ -248,9 +246,11 @@ The resulting image is somewhat blurry and less spatially precise, but it provid
 
 This week highlighted the importance of interpreting images and understanding how they are captured, processed, and produced. The best sensor to use depends entirely on the specific question being asked. For flooding as an example it is not easy to identify. Any surface that is large and smooth can appear as water in SAR imagery due to specular reflectance, leading to misclassification. Examples include airports, exposed channel beds, and highways. Seasonal flooding—regular, *expected annual flooding*—must also be considered.
 
-ne area of interest is whether ancient buildings in Egypt—and associated mining works or structures—could be identified. This would require understanding what features to look for before searching the imagery, unless code were developed to detect rubble signatures, columns, or other characteristic pixel patterns.
+And there are muti sensor satalites that can capture the vertical column measurements of NO2, for example. The troposphere is the closest we can get to ground-level measurements with Sentinel-5P. (Zander, Venter,Sourangsu, Chowdhury)
 
 There is a clear need for training in image interpretation, as well as in loading, manipulating, and understanding imagery. Further reading and analysis will help answer both existing and emerging questions.
+
+An area of interest is whether ancient buildings in Egypt—and associated mining works or structures—could be identified. This would require understanding what features to look for before searching the imagery, unless code were developed to detect rubble signatures, columns, or other characteristic pixel patterns.
 
 ![](images/clipboard-315653524.png)
 
@@ -258,7 +258,27 @@ There is a clear need for training in image interpretation, as well as in loadin
 
 *Cloud-Based Remote Sensing with Google Earth Engine: Fundamentals and Applications* Jeffrey A. Cardille, Morgan A. Crowley, David Saah, Nicholas E. Clinton (Editors)
 
-O
+***Other Image providers exist See link***
+
+Lu, D., Li, G., Moran, E., Dutra, L., & Batistella, M. (2011). A Comparison of Multisensor Integration Methods for Land Cover Classification in the Brazilian Amazon. *GIScience & Remote Sensing*, *48*(3), 345–370. <https://doi.org/10.2747/1548-1603.48.3.345>
+
+Zander Venter and Sourangsu Chowdhury <https://eos.com/landviewer/?lat=51.83581&lng=0.47917&z=8&datasets=5&id=S2C_tile_20260214_30UXC_0&b=Red,Green,Blue&anti=true&processing=L2A>
+
+**Dongying Li, Galen D Newman, Bev Wilson, Yue Zhang, Robert D Brown**
+
+[[**Modeling the relationships between historical redlining, urban heat, and heat-related emergency department visits: An examination of 11 Texas cities**]{.underline}](https://journals.sagepub.com/doi/abs/10.1177/23998083211039854 "https://journals.sagepub.com/doi/abs/10.1177/23998083211039854")
+
+(Asner, [**1998**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0002 "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0002"); Tempfli, Kerle, in
+
+Schulte to Bühne H, Pettorelli N. Better together: Integrating and fusing multispectral and radar satellite imagery to inform biodiversity monitoring, ecological research and conservation science. Methods Ecol Evol. 2018;9:849–865. <https://doi.org/10.1111/2041-210X.12942>
+
+Huurneman, & Janssen, [**2009**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0104 "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12942#mee312942-bib-0104")), 
+
+Schulte to Bühne H, Pettorelli N. Better together: Integrating and fusing multispectral and radar satellite imagery to inform biodiversity monitoring, ecological research and conservation science. Methods Ecol Evol. 2018;9:849–865. <https://doi.org/10.1111/2041-210X.12942>
+
+Zander Venter and Sourangsu Chowdhury
+
+<https://www.eefabook.org/go-to-the-book.html>
 
 ## Running Code
 
@@ -269,10 +289,5 @@ When you click the **Render** button a document will be generated that includes 
 ```
 
 You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
 
 The `echo: false` option disables the printing of code (only output is displayed).
