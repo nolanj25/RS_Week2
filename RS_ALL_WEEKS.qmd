@@ -1,0 +1,208 @@
+---
+title: "RSWEEKS"
+format: html
+editor: visual
+---
+
+## Week 1
+
+Remote sensing in Week 1 introduced the distinction between passive and active data collection, which forms the foundation for understanding satellite imagery. Passive systems rely on sunlight as their illumination source, while active systems—such as LiDAR, radar, or X‑ray sensors—emit their own energy and measure the returned signal. This week also highlighted how atmospheric conditions influence the quality of remotely sensed data. Phenomena such as Rayleigh scattering explain why shorter wavelengths scatter more easily, producing effects like the blue appearance of oceans or the reddening of sunlight. Cloud cover, smoke, and volcanic ash act as filters that can obscure or distort imagery, raising questions about whether high‑cloud‑cover scenes can be selectively filtered out during data searches.
+
+A major focus was on the different data types and formats used in remote sensing. Raster data, such as GeoTIFFs, contrast with LiDAR point‑cloud data, which record X, Y, Z and intensity values to generate DEMs and DTMs. We also explored spectral concepts including the red‑edge region, multispectral versus hyperspectral imaging, and the construction of true‑colour composites. Understanding sensor resolution is essential: MODIS provides 500 m resolution, Landsat offers 30 m, and Sentinel‑2 improves this to 10 m. Using SNAP software demonstrated how differences in weather, spatial resolution, and surface reflectance (SR) influence the interpretation of Landsat and Sentinel imagery.
+
+This week also encouraged independent thought about practical applications and data‑handling challenges. Image size and processing requirements can limit what analyses are feasible, making repeatable workflows important. Comparing images of different resolutions or dates requires consistent settings, especially when studying vegetation recovery or environmental change. The infrared reflectance of plants—linked to evolutionary adaptations—was identified as a promising area for exploring regrowth after volcanic events. Image manipulation, transparency adjustments, and the difficulty of locating specific scenes across satellites with varying colour coverage and date ranges were also noted as practical obstacles.
+
+This week raised questions about automation and reproducibility in remote sensing workflows. It would be useful to specify latitude, longitude, and zoom scale directly to retrieve consistent imagery across time, perhaps using R to store these parameters. This could support long‑term monitoring, such as analysing monthly vegetation change from 1994–2026 or comparing plume heights and crater features using satellite and oblique photographs. Historical mapping from the UCL Geography Department could be georeferenced and compared with modern satellite data to study landscape change. Additional topics of interest include the availability of InSAR for measuring height change and the possibility that cloud shadows may reveal otherwise hidden volcanic activity, as seen in events like the 3 November 2008 eruption.
+
+After downloading data from various sources, I’ve noticed several issues. The file sizes are very large, and multiple images often need to be blended together to create a true, seamless image. The resolution is also lower than I expected based on my initial Sentinel‑2 download. Processing time has become a problem as well. Ideally, I’d like to be able to select smaller, more manageable image areas.
+
+![](images/clipboard-3193432266.png)
+
+**Week 2 - See Presentation**
+
+***Week 3 Georeferencing and Regression***
+
+-   *Georeferencing involves aligning a scanned image with an existing image or a coordinate reference system.*
+
+-   *To assign a coordinate reference system, Ground Control Points (GCPs) are collected.*
+
+-   *A gold‑standard map is compared with the scanned image, and a regression plot is created. Many points are needed — the more, the better.*
+
+-   *Several regression methods (around 5–6) can be used for georeferencing.*
+
+-   *PIFs (Pseudo‑Invariant Features) help maintain consistency across images.*
+
+-   *The goal is to transform the scanned image using a regression model based on the GCPs.*
+
+-   *Resampling methods include nearest neighbour and centroid‑based approaches.*
+
+-   *Non‑matching grids must be matched before analysis, and images need to be the same size.*
+
+***Atmospheric Data and Corrections***
+
+-   *Pixel “bleeding” occurs when light from the Earth’s surface spreads into neighbouring pixels, especially across images taken over time.*
+
+-   *Dark Object Subtraction is one method of atmospheric correction, though not ideal.*
+
+-   *PIF‑based correction uses a reference image.*
+
+-   *Corrections are applied per band: the reference pixel value is applied to all corresponding pixels in the target image.*
+
+-   *Regression is applied on a per‑band basis.*
+
+-   *Care is needed when interpreting charts, as y‑values may differ.*
+
+***Absolute Atmospheric Correction***
+
+-   *Models the atmosphere directly and applies the model to the image.*
+
+-   *Introduces uncertainty and bias; requires weather data.*
+
+-   *Different biomes require different atmospheric models.*
+
+-   *Tools include free and paid software such as FLASH and ENVI.*
+
+-   *Empirical Line Correction uses in‑situ reflectance measurements.*
+
+-   *Atmospheric path radiance and attenuation are both accounted for in the correction equation.*
+
+-   *Analysis‑ready data is often used to avoid these complexities.*
+
+***Topographic Correction***
+
+-   *Nadir view is directly downward; off‑nadir angles (e.g., 25°) affect illumination*
+
+-   *The MTL file contains metadata such as tile angle, sun angle, and acquisition date.*
+
+-   *Solar azimuth describes the sun’s horizontal position (0° = north, 90° = east).*
+
+-   *Solar zenith describes the sun’s height above the horizon.*
+
+-   *Topographic correction accounts for terrain elevation and slope.*
+
+-   *Atmospheric correction is applied first, then topographic correction*
+
+***Radiometric Correction***
+
+-   *Digital Numbers (DNs) are efficient for storage and processing.*
+
+-   *DN represents the amount of light detected by the sensor.*
+
+-   *Conversion uses bias and gain values (e.g., from the Landsat handbook).*
+
+-   *DN → spectral radiance → reflectance.*
+
+-   *Radiance is influenced by the light source; reflectance accounts for the light source and represents the surface properties.*
+
+-   *Top‑of‑Atmosphere (TOA) reflectance is commonly used.*
+
+-   *Apparent reflectance differs from pure hemispherical reflectance*
+
+***Data Products and Processing***
+
+-   *Landsat products are provided at different collection levels.*
+
+-   *“Load surface collection” refers to using surface reflectance products.*
+
+-   *Image mosaicking involves joining tiles using feathering or blending.*
+
+-   *Collections (e.g., in Google Earth Engine) allow stacking images and taking median values over a time period (e.g., 3 months).*
+
+***Enhancement and Analysis***
+
+-   *Enhancements include contrast stretching and other pixel‑based adjustments*
+
+-   *Ratios and filters (e.g., NDVI, red‑edge indices) extract spectral information.*
+
+-   *PCA (Principal Component Analysis) reduces dimensionality (e.g., 7 bands → 2 components) while retaining variance*
+
+-   *PCA helps identify change, such as new buildings.*
+
+-   *Texture analysis uses second‑order statistics (co‑occurrence matrices).*
+
+-   *Multiple texture measures exist (around 15), including mean, variance, and directional change.*
+
+-   *Texture analysis is computationally heavy, especially over large areas*
+
+***Correction and Interpretation***
+
+-   *Images contain errors; corrections help ensure values (e.g., reflectance or DN) are meaningful*
+
+-   *When joining datasets, features may need to be extracted using ratios or other transformations.*
+
+***Practical Tasks***
+
+-   *Apply Dark Object Subtraction.*
+
+-   *Align and use the MTL file for corrections.*
+
+-   *Understand product levels (e.g., Landsat SR).*
+
+-   *Perform enhancements, filtering, and texture methods.*
+
+-   *PCA is often simpler than texture analysis.*
+
+-   *Texture zonal statistics can be applied to areas such as 5 × 5 km squares.*
+
+-   *Image citations require only the source (e.g., “Landsat, date”).*
+
+**Heat Prevention Case Study (India)**
+
+-   I initially planned to download imagery for London because I’m familiar with the area, but I decided instead to explore a different region.
+
+-   A case study on heat‑prevention planning in India, which focused on informal settlements (slums).
+
+-   The study examined a 2010 heatwave that showed increased mortality on the hottest days.
+
+-   However, the report also noted that other factors—such as poor air quality, dengue fever, and general illness—may have contributed to the rise in deaths, not only heat stroke or heat exhaustion.
+
+-   The study did not mention satellite data; it relied mainly on weather‑event monitoring and air‑quality information
+
+-   This raised an interesting question: could previous satellite imagery, weather data, and air‑quality sensor data be used to support early‑warning systems for a city of seven million people
+
+-   The city now provides five‑day heat forecasts, and the media reports these warnings.
+
+-   The Ahmedabad Municipal Corporation pioneered an early‑warning system for extreme heat.
+
+**Additional Considerations**
+
+-   Air‑pollution monitoring should be integrated with heat‑risk analysis. See later weeks SAR reference.
+
+-   Spatial mapping of deaths, combined with town‑planning data and the distribution of slums, could reveal patterns of vulnerability.
+
+-   This could help identify neighbourhoods most at risk and improve targeted interventions.
+
+One quarter of the slums are migrant population and threat with exposure to the heat eg police and rikshaw drivers are susceptible .
+
+The temp range is not large for only 5 degrees ie 40 the 45 degree c. this would apper to be too small. An earlier warning and a wider temperature range, especially with those in countries not used to heat.
+
+Artis & Carnahan (1982), recently summarised by Guha et al. 2018 and and Avdan and Jovanovska (2016)
+
+TOA spectral radiance is light reflected off the Earth as seen from the satellite measure in radiance units.
+
+Heat affects health through dehydration, acute by heat exhaustion and heat stroke, and exacerbations of chronic cardiovascular and respiratory diseases. poor air quality, driven by industrial expansion can worsen during extreme heat and lead to respiratory and other illnesses. Heat is also known to fuel outbreaks of vector-borne diseases such as malaria, chikungunya and dengue fever, all prevalent in Ahmedabad \[[6](https://pmc.ncbi.nlm.nih.gov/articles/PMC4024996/#B6-ijerph-11-03473)\], and to impact the incidence of diarrheal disease, especially among children.
+
+Add GEE Pratical codes and Images
+
+GGE
+
+Example of own area data Upload (CCd code)
+
+![](images/clipboard-209908950.png)
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 2
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
