@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Presentation</title>
+    <title>Remote Sensing Week 1</title>
     <meta charset="utf-8" />
     <meta name="author" content="Yihui Xie" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Presentation
+# Remote Sensing Week 1
 ]
 .subtitle[
 ## ⚔<br/>with xaringan
@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### RStudio, PBC
 ]
 .date[
-### (updated: 2026-03-25)
+### (updated: 2026-03-27)
 ]
 
 ---
@@ -47,14 +47,6 @@ class: center, middle
 ### /ʃaː.'riŋ.ɡan/
 
 ---
-class: inverse, center, middle
-
-# Get Started
-
----
-
-class: center, middle
----
 # RS Week 1
 Remote sensing in Week 1 introduced the distinction between passive and active data collection, which forms the foundation for understanding satellite imagery. Passive systems rely on sunlight as their illumination source, while active systems—such as LiDAR, radar, or X ray sensors—emit their own energy and measure the returned signal. This week also highlighted how atmospheric conditions influence the quality of remotely sensed data. Phenomena such as Rayleigh scattering explain why shorter wavelengths scatter more easily, producing effects like the blue appearance of oceans or the reddening of sunlight. Cloud cover, smoke, and volcanic ash act as filters that can obscure or distort imagery, raising questions about whether high cloud cover scenes can be selectively filtered out during data searches.
 ---
@@ -63,6 +55,7 @@ A major focus was on the different data types and formats used in remote sensing
 This week also encouraged independent thought about practical applications and data handling challenges. Image size and processing requirements can limit what analyses are feasible, making repeatable workflows important. Comparing images of different resolutions or dates requires consistent settings, especially when studying vegetation recovery or environmental change. The infrared reflectance of plants—linked to evolutionary adaptations—was identified as a promising area for exploring regrowth after volcanic events. Image manipulation, transparency adjustments, and the difficulty of locating specific scenes across satellites with varying colour coverage and date ranges were also noted as practical obstacles.
 ----
 Finally, the week raised questions about automation and reproducibility in remote sensing workflows. It would be useful to specify latitude, longitude, and zoom scale directly to retrieve consistent imagery across time, perhaps using R to store these parameters. This could support long term monitoring, such as analysing monthly vegetation change from 1994–2026 or comparing plume heights and crater features using satellite and oblique photographs. Historical mapping from the UCL Geography Department could be georeferenced and compared with modern satellite data to study landscape change. Additional topics of interest include the availability of InSAR for measuring height change and the possibility that cloud shadows may reveal otherwise hidden volcanic activity, as seen in events like the 3 November 2008 eruption.
+---
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 
@@ -71,21 +64,25 @@ names(xaringan:::list_css())
 css: [default, ninjutsu, ninjutsu-fonts]
 css: ["xaringan-themer.css"] * highlightStyle: ninjutsu
 
-library(xaringanthemer)
 
-style_mono_accent(
-  base_color        = "#1c5253",
-  header_font_google = google_font("Josefin Sans"),
-  text_font_google   = google_font("Montserrat", "200", "200i"),
-  code_font_google   = google_font("Fira Mono")
-)
----
-# Image of Rabaul
-![](C:/RS AND TEXT DOCS/XANDTEST/RAB1.png)
----
-# Image of Rabaul with GIS Overlay Map
-![](C:/RS AND TEXT DOCS/XANDTEST/RAB2.png)
 
+
+---
+title: "My Presentation"
+output: xaringan::moon_reader
+---
+
+
+
+---
+# Image of Rabaul volcano
+
+![](images/RAB1.png){width=70%}
+
+---
+# Image of Rabaul with Map
+
+![](images/RAB2.png){width=80%}
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
