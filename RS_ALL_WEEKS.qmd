@@ -4,7 +4,31 @@ format: html
 editor: visual
 ---
 
-## Week 1
+Background
+
+I have experience working with commercial businesses and in local and regional government, identifying sites for inward investment and applying GIS techniques to optimise operations and realise efficiencies. The skills I will acquire throughout the course will directly apply to the work I carry out and will improve the efficiency of data handling and access. This will increase the accessibility of management information across the organisation. This module will enhance existing methods of information sharing and demonstrate how new data can be created from existing imagery that is available but not currently analysed spatially, either because it is in the wrong format or inaccessible to those who could make best use of it.
+
+-   1 - intro to remote sensing
+
+-   Week 2 - See Presentation link
+
+<!-- -->
+
+-   *3 - corrections*
+
+-   *4 - Policy (individual case study city)*
+
+-   *5 - Google Earth Engine*
+
+-   *6 - classification 1*
+
+-   *7 - classification 2*
+
+-   *8 - SAR or temperature, or combination*
+
+<!-- -->
+
+-   1 - intro to remote sensing
 
 Remote sensing in Week 1 introduced the distinction between passive and active data collection, which forms the foundation for understanding satellite imagery. Passive systems rely on sunlight as their illumination source, while active systems—such as LiDAR, radar, or X‑ray sensors—emit their own energy and measure the returned signal. This week also highlighted how atmospheric conditions influence the quality of remotely sensed data. Phenomena such as Rayleigh scattering explain why shorter wavelengths scatter more easily, producing effects like the blue appearance of oceans or the reddening of sunlight. Cloud cover, smoke, and volcanic ash act as filters that can obscure or distort imagery, raising questions about whether high‑cloud‑cover scenes can be selectively filtered out during data searches.
 
@@ -18,9 +42,19 @@ After downloading data from various sources, I’ve noticed several issues. The 
 
 ![](images/clipboard-3193432266.png)
 
-**Week 2 - See Presentation**
+**Week 2 - See Presentation link URL (check)**
 
-***Week 3 Georeferencing and Regression***
+Portfolio, a short xaringan (or Quarto) presentation on sensor
+
+RS_Week2/FINAL_FILE_RUN_files at master · nolanj25/RS_Week2
+
+Image in QGIS - with full 3 band colour and with Geo-referenced background map
+
+![](images/clipboard-2894018029.png)
+
+![](images/clipboard-1080931233.png)
+
+***Week 3*** - corrections - notes on *Georeferencing and Regression*
 
 -   *Georeferencing involves aligning a scanned image with an existing image or a coordinate reference system.*
 
@@ -146,7 +180,11 @@ After downloading data from various sources, I’ve noticed several issues. The 
 
 -   *Image citations require only the source (e.g., “Landsat, date”).*
 
-**Heat Prevention Case Study (India)**
+<!-- -->
+
+-   **4 - Policy (individual case study city)**
+
+Heat Prevention Case Study (India)
 
 -   I initially planned to download imagery for London because I’m familiar with the area, but I decided instead to explore a different region.
 
@@ -182,13 +220,45 @@ TOA spectral radiance is light reflected off the Earth as seen from the satellit
 
 Heat affects health through dehydration, acute by heat exhaustion and heat stroke, and exacerbations of chronic cardiovascular and respiratory diseases. poor air quality, driven by industrial expansion can worsen during extreme heat and lead to respiratory and other illnesses. Heat is also known to fuel outbreaks of vector-borne diseases such as malaria, chikungunya and dengue fever, all prevalent in Ahmedabad \[[6](https://pmc.ncbi.nlm.nih.gov/articles/PMC4024996/#B6-ijerph-11-03473)\], and to impact the incidence of diarrheal disease, especially among children.
 
-Add GEE Pratical codes and Images
+*Add GEE Pratical codes and Images*
+
+Loaded code to displayBoundaries and
+
+Loaded Images
+
+Centering mapinng with coodinates and pre defined features
 
 GGE
 
-Example of own area data Upload (CCd code)
+London Borough of Tower Hamlets, United Kingdom Feb 14, 2026 Satellite Imagery
+
+Example of own area data Upload (GEE code)
 
 ![](images/clipboard-209908950.png)
+
+**Week 8** SAR or temperature, or combination
+
+Loaded and displayed in GEE and researched the SAR properties for Identifying different in structural bodies using active sensor reluctance for heat identification in urban areas. Linking the practical application with past studies and theory
+
+**Practical – Week 8** This week focused on splitting the Level‑3 boundaries and adding a mask to the data before loading it, as well as converting the temperature data from Kelvin to Celsius. This was of use in undertanding the group work.
+
+The code loaded and ran successfully, producing an impressive output in both coverage and granularity. The cooler appearance of the rivers immediately increased confidence in the imagery. Colour parameters were taken from MODIS.
+
+The resulting image is somewhat blurry and less spatially precise, but it provides strong areal representation of warmer and cooler regions. This is because the MODIS collection contains more images to draw temperature data from. The output is visually appealing and useful for comparing different regions, as well as for higher‑level policy perspectives.
+
+This week highlighted the importance of interpreting images and understanding how they are captured, processed, and produced. The best sensor to use depends entirely on the specific question being asked. For flooding as an example it is not easy to identify. Any surface that is large and smooth can appear as water in SAR imagery due to specular reflectance, leading to misclassification. Examples include airports, exposed channel beds, and highways. Seasonal flooding—regular, *expected annual flooding*—must also be considered.
+
+ne area of interest is whether ancient buildings in Egypt—and associated mining works or structures—could be identified. This would require understanding what features to look for before searching the imagery, unless code were developed to detect rubble signatures, columns, or other characteristic pixel patterns.
+
+There is a clear need for training in image interpretation, as well as in loading, manipulating, and understanding imagery. Further reading and analysis will help answer both existing and emerging questions.
+
+![](images/clipboard-315653524.png)
+
+**References**
+
+*Cloud-Based Remote Sensing with Google Earth Engine: Fundamentals and Applications* Jeffrey A. Cardille, Morgan A. Crowley, David Saah, Nicholas E. Clinton (Editors)
+
+O
 
 ## Running Code
 
