@@ -32,13 +32,7 @@ class: center, middle
 
 ---
 # RS Week 1
-Remote sensing in Week 1 introduced the distinction between passive and active data collection, which forms the foundation for understanding satellite imagery. Passive systems rely on sunlight as their illumination source, while active systems—such as LiDAR, radar, or X ray sensors—emit their own energy and measure the returned signal. This week also highlighted how atmospheric conditions influence the quality of remotely sensed data. Phenomena such as Rayleigh scattering explain why shorter wavelengths scatter more easily, producing effects like the blue appearance of oceans or the reddening of sunlight. Cloud cover, smoke, and volcanic ash act as filters that can obscure or distort imagery, raising questions about whether high cloud cover scenes can be selectively filtered out during data searches.
----
-A major focus was on the different data types and formats used in remote sensing. Raster data, such as GeoTIFFs, contrast with LiDAR point cloud data, which record X, Y, Z and intensity values to generate DEMs and DTMs. We also explored spectral concepts including the red edge region, multispectral versus hyperspectral imaging, and the construction of true colour composites. Understanding sensor resolution is essential: MODIS provides 500 m resolution, Landsat offers 30 m, and Sentinel 2 improves this to 10 m. Using SNAP software demonstrated how differences in weather, spatial resolution, and surface reflectance (SR) influence the interpretation of Landsat and Sentinel imagery.
----
-This week also encouraged independent thought about practical applications and data handling challenges. Image size and processing requirements can limit what analyses are feasible, making repeatable workflows important. Comparing images of different resolutions or dates requires consistent settings, especially when studying vegetation recovery or environmental change. The infrared reflectance of plants—linked to evolutionary adaptations—was identified as a promising area for exploring regrowth after volcanic events. Image manipulation, transparency adjustments, and the difficulty of locating specific scenes across satellites with varying colour coverage and date ranges were also noted as practical obstacles.
-----
-Finally, the week raised questions about automation and reproducibility in remote sensing workflows. It would be useful to specify latitude, longitude, and zoom scale directly to retrieve consistent imagery across time, perhaps using R to store these parameters. This could support long term monitoring, such as analysing monthly vegetation change from 1994–2026 or comparing plume heights and crater features using satellite and oblique photographs. Historical mapping from the UCL Geography Department could be georeferenced and compared with modern satellite data to study landscape change. Additional topics of interest include the availability of InSAR for measuring height change and the possibility that cloud shadows may reveal otherwise hidden volcanic activity, as seen in events like the 3 November 2008 eruption.
+Remote sensing in Week 1 introduced the distinction between passive and active data collection, which forms the foundation for understanding satellite imagery.
 ---
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
@@ -70,9 +64,9 @@ style_mono_accent(
 ---
 # Image of Rabaul volcano
 
-![](images/RAB1.png){width=70%}
+![](images/RAB1.png)
 
 ---
 # Image of Rabaul with Map
 
-![](images/RAB2.png){width=80%}
+![](images/RAB2.png)
